@@ -26,6 +26,14 @@ function addTask() {
      clearTxt();            
      loadTasks();
 
+     console.log(document.getElementById(taskName).checked); 
+    document.getElementById(taskName).addEventListener("change",function(){
+        if(this.checked){
+            console.log("Checked");
+        }else{
+            console.log("unChecked");
+        }
+    })
 
 
 }
