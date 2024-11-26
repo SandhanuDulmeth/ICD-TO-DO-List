@@ -48,6 +48,9 @@ for (let index = 0; index < taskNameArray.length; index++) {
                     <input type="checkbox" id="${taskName}" name="" style="width: 50px; height: 50px;" checked>
                 </div>
                 </div>`;
+                
+               
+              
            
         }else{
             console.log("unChecked");
@@ -59,15 +62,17 @@ for (let index = 0; index < taskNameArray.length; index++) {
                     <input type="checkbox" id="${taskName}" name="" style="width: 50px; height: 50px;" >
                 </div>
                 </div>`;
-        }
+                
+                
+               
+              
+            }
     })
    
     
 }
 
      
-
-
 
 
 }
@@ -84,7 +89,7 @@ function loadTasks(){
 
     });
     
-   console.log(rowBody);
+ 
    
 
     row.innerHTML = rowBody;
@@ -94,4 +99,24 @@ function loadTasks(){
 
 function clearTxt(){
     document.getElementById("taskName").value = '';
+}
+
+function DropTask() {
+    console.clear();
+   
+    for (let index = taskNameArray.length - 1; index >= 0; index--) {
+        const taskName = taskNameArray[index];
+        const checkbox = document.getElementById(taskName);
+
+        if (checkbox && checkbox.checked) {
+            console.log(`Dropping task: ${taskName}`)
+           
+            taskNameArray.splice(index, 1);
+            taskArray.splice(index, 1);
+        }
+    }
+   
+   
+    loadTasks();
+    
 }
